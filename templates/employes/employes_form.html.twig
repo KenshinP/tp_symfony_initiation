@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{# {{ form(employeForm) }} #}
+	{{form_start(employeForm)}}
+
+	{{form_label(employeForm.prenom,'Prenom :', {'label_attr' : {'class' : 'label'}})}}
+	{{form_widget(employeForm.prenom, {'attr' : {'class' : 'input', 'placeholder' : 'Prenom'}})}}
+
+	{{form_label(employeForm.nom,'Nom  :', {'label_attr' : {'class' : 'label'}})}}
+	{{form_widget(employeForm.nom, {'attr' : {'class' : 'input', 'placeholder' : 'Nom '}})}}
+
+	{{form_label(employeForm.telephone,'Téléphone :', {'label_attr' : {'class' : 'label'}})}}
+	{{form_widget(employeForm.telephone, {'attr' : {'class' : 'input', 'placeholder' : 'Téléphone'}})}}
+
+	{{form_label(employeForm.email,'Email:', {'label_attr' : {'class' : 'label'}})}}
+	{{form_widget(employeForm.email, {'attr' : {'class' : 'input', 'placeholder' : 'Email'}})}}
+
+	{{form_label(employeForm.adresse,'Adresse :', {'label_attr' : {'class' : 'label'}})}}
+	{{form_widget(employeForm.adresse, {'attr' : {'class' : 'input', 'placeholder' : 'Adresse'}})}}
+
+	{{form_label(employeForm.poste,'Poste :', {'label_attr' : {'class' : 'label'}})}}
+	{{form_widget(employeForm.poste, {'attr' : {'class' : 'input', 'placeholder' : 'Poste'}})}}
+
+	{{form_label(employeForm.salaire,'Salaire :', {'label_attr' : {'class' : 'label'}})}}
+	{{form_widget(employeForm.salaire, {'attr' : {'class' : 'input', 'placeholder' : 'Salaire'}})}}
+
+	{{form_label(employeForm.datedenaissance,'Date de naissance :', {'label_attr' : {'class' : 'label'}})}}
+	{{form_widget(employeForm.datedenaissance, {'attr' : {'class' : 'input', 'placeholder' : 'Date de naissance '}})}}
+
+	{{form_widget(employeForm.Enregistrer, {'attr' : {'class' : 'input',}})}}
+
+
+	{{form_end(employeForm)}}
+{% endblock %}

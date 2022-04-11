@@ -1,0 +1,105 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EmployesController!
+{% endblock %}
+
+{% block body %}
+<style>
+	.example-wrapper {
+		margin: 1em auto;
+		max-width: 800px;
+		width: 95%;
+		font: 18px / 1.5 sans-serif;
+	}
+	.example-wrapper code {
+		background: #F5F5F5;
+		padding: 2px 6px;
+	}
+</style>
+
+
+{# {% block form %}
+
+{{form_start(EmployesForm)}}
+
+{{form_label(EmployesForm.name,'Prenom :', {'label_attr' : {'class' : 'label'}})}}
+{{form_widget(EmployesForm.name, {'attr' : {'class' : 'input', 'placeholder' : 'Prenom'}})}}
+
+{{form_label(EmployesForm.name,'Nom  :', {'label_attr' : {'class' : 'label'}})}}
+{{form_widget(EmployesForm.name, {'attr' : {'class' : 'input', 'placeholder' : 'Nom '}})}}
+
+{{form_label(EmployesForm.name,'Téléphone :', {'label_attr' : {'class' : 'label'}})}}
+{{form_widget(EmployesForm.name, {'attr' : {'class' : 'input', 'placeholder' : 'Téléphone'}})}}
+
+{{form_label(EmployesForm.name,'Email:', {'label_attr' : {'class' : 'label'}})}}
+{{form_widget(EmployesForm.name, {'attr' : {'class' : 'input', 'placeholder' : 'Email'}})}}
+
+{{form_label(EmployesForm.name,'Adresse :', {'label_attr' : {'class' : 'label'}})}}
+{{form_widget(EmployesForm.name, {'attr' : {'class' : 'input', 'placeholder' : 'NAdresse'}})}}
+
+{{form_label(EmployesForm.name,'Poste :', {'label_attr' : {'class' : 'label'}})}}
+{{form_widget(EmployesForm.name, {'attr' : {'class' : 'input', 'placeholder' : 'Poste'}})}}
+
+{{form_label(EmployesForm.name,'Salaire :', {'label_attr' : {'class' : 'label'}})}}
+{{form_widget(EmployesForm.name, {'attr' : {'class' : 'input', 'placeholder' : 'Salaire'}})}}
+
+{{form_label(EmployesForm.name,'Date de naissance :', {'label_attr' : {'class' : 'label'}})}}
+{{form_widget(EmployesForm.name, {'attr' : {'class' : 'input', 'placeholder' : 'Date de naissance '}})}}
+
+{{form_widget(EmployesForm.Enregistrer, {'attr' : {'class' : 'input',}})}}
+
+
+{{form_end(EmployesForm)}}
+{% endblock %} #}
+
+
+	{# {{ form(employeForm) }} #}
+
+	<div class="container">
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">Id</th>
+					<th scope="col">Prénom</th>
+					<th scope="col">Nom</th>
+					<th scope="col">Téléphone</th>
+					<th scope="col">Email</th>
+					<th scope="col">Adresse</th>
+					<th scope="col">Poste</th>
+					<th scope="col">Salaire</th>
+					<th scope="col">Date de naissance</th>
+					<th scope="col">Option</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for employe in employes %}
+					<tr>
+						<th scope="row">{{employe.id}}</th>
+						<td>{{employe.prenom}}</td>
+						<td>{{employe.nom}}</td>
+						<td>{{employe.telephone}}</td>
+						<td>{{employe.email}}</td>
+						<td>{{employe.adresse}}</td>
+						<td>{{employe.poste}}</td>
+						<td>{{employe.salaire}}</td>
+						<td>{{employe.datedenaissance|date("m/d/Y") }}</td>
+						<td>
+							<a href="{{path('update_employe', {'id' : employe.id})}}">
+								<i class="fa-solid fa-pen-to-square"></i>
+							</a>
+							<a href="{{path('delete_employe', {'id' : employe.id})}}">
+								<i class="fa-solid fa-trash-can"></i>
+							</a>
+						</td>
+
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	<div class="container">
+		<a  href="{{ path('create_employe')}}" class="btn btn-success">Ajouter un utilisateur</a>
+	</div>
+
+
+{% endblock %}
